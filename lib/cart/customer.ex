@@ -22,7 +22,7 @@ defmodule Cart.Customer do
     data
     |> cast(params, @fields) # create with fields defined above
     |> cast_embed(:billingAddress)
-    |> validate_required([:first_name, :last_name, :email, :birthday])
+    # |> validate_required([:first_name, :last_name, :email, :birthday])
     |> validate_length(:first_name, max: 10)
     |> validate_length(:last_name, max: 10)
     |> validate_format(:email, ~r/@/)
@@ -72,6 +72,3 @@ defmodule Cart.Customer do
 
   end
 end
-
-# billingAddress = %{addr1: "14724 Eddington Way", addr2: "#101", city: "Louisville", state: "KY", zipCode: "40245"}
-# customer = Cart.Customer.changeset(%Cart.Customer{}, %{first_name: "Brandon", last_name: "Tindle", email: "brandon.tindle@eltoro.com", birthday: "02/25/1980", billingAddress: billingAddress})
